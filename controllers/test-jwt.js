@@ -4,13 +4,14 @@ const express = require("express");
 const router = express.Router();
 const jwt = require("jsonwebtoken");
 
-const user = {
-  _id: 1,
-  username: "test",
-  password: "test",
-};
+
 
 router.get("/sign-token", (req, res) => {
+  const user = {
+    _id: 1,
+    username: "test",
+    password: "test",
+  };
   const token = jwt.sign({ user }, process.env.JWT_SECRET);
 
   res.json({ token });
